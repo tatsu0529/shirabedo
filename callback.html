@@ -1,0 +1,13 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Shirabedo Uploader - Connected</title><style>body{font-family:sans-serif;max-width:720px;margin:40px auto;padding:0 16px;line-height:1.7;color:#222;background:#fff}code{display:block;word-break:break-all;background:#f3f3f3;padding:12px;border-radius:6px}</style></head><body>
+<h1>Shirabedo Uploader</h1>
+<p id="msg">Loading...</p>
+<code id="code"></code>
+<p><a href="index.html">Home</a> · <a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms of Service</a></p>
+<script>
+var p=new URLSearchParams(location.search);
+var c=p.get('code'),e=p.get('error');
+var m=document.getElementById('msg'),b=document.getElementById('code');
+if(c){m.textContent='TikTokとの接続が許可されました。下のコードをコピーしてClaudeに送ってください（数分で無効になります）。 / Authorization complete. Copy the code below.';b.textContent=c;}
+else if(e){m.textContent='接続できませんでした / Authorization failed: '+e;b.textContent=p.get('error_description')||'';}
+else{m.textContent='このページはTikTokログイン後の戻り先です。 / This is the redirect page after TikTok login.';b.style.display='none';}
+</script></body></html>
